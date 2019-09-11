@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId "com.udacity.gradle.builditbigger"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -36,7 +36,7 @@ android {
         }
     }
     sourceSets {
-        main { java.srcDirs = ['src/main/java'] }
+        main { java.srcDirs = ['src/main/java', 'src/test', 'src/main/java/androidTest'] }
         test { java.srcDirs = ['src/test/java'] }
         androidTest { java.srcDirs = ['src/androidTest/java'] }
     }
@@ -79,13 +79,16 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     testImplementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
+
     implementation project(":javalibjokesprovider")
     implementation project(":libraryandroidjoker")
 
     implementation 'com.google.android.gms:play-services-ads:15.0.0'
+    implementation 'junit:junit:4.12'
 }
