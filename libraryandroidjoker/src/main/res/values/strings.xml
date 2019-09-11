@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">androidlibraryjoker</string>
+    <string name="title_activity_display">DisplayActivity</string>
+    <string name="joke">Joke</string>
+    <string name="no_jokes_found">WHAT IS THAT JOKE???</string>
+    <string name="envelope">Envelope</string>
+</resources>
