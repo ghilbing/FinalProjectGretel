@@ -3,5 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="padding">8dp</dimen>
-    <dimen name="instruction_size">12dp</dimen>
+    <dimen name="instruction_size">24dp</dimen>
 </resources>

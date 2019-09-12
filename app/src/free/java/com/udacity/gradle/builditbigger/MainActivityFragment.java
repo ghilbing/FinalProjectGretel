@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.ads.AdListener;
@@ -16,6 +18,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
+import com.hilbing.androidlibraryjoker.DisplayActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,7 +46,7 @@ public class MainActivityFragment extends Fragment {
 
         //Set up interstitial
         publisherInterstitialAd = new PublisherInterstitialAd(getContext());
-        publisherInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        publisherInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
 
         publisherInterstitialAd.setAdListener(new AdListener(){
             @Override
@@ -64,7 +67,7 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
-
+                progressBar.setVisibility(View.GONE);
             }
         });
 
@@ -102,7 +105,7 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void getNewJoke(){
-        new JokeAsyncTask().execute(getContext());
+        new JokeAsyncTask(getContext(), progressBar).execute(getContext());
 
     }
 
@@ -112,4 +115,5 @@ public class MainActivityFragment extends Fragment {
                 .build();
         publisherInterstitialAd.loadAd(adRequest);
     }
+
 }
