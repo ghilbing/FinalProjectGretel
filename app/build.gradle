@@ -55,6 +55,10 @@ android {
         }
     }
 
+    task startServer (dependsOn: [':backend:appengineStop', ':backend:appengineRun']) {
+        tasks.getByPath(':backend:appengineRun').mustRunAfter ':backend:appengineStop'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
