@@ -24,7 +24,7 @@ public class JokeTest {
     @Test
     public void JokeTest() throws InterruptedException, ExecutionException {
 
-        JokeAsyncTask jokeAsyncTask = new JokeAsyncTask();
+        JokeAsyncTask jokeAsyncTask = new JokeAsyncTask(null, null);
         jokeAsyncTask.execute(mActivityTestRule.getActivity());
 
         String joke = jokeAsyncTask.get();

@@ -29,7 +29,6 @@ public class JokeAsyncTask extends AsyncTask<Context, Void, String> {
         this.mProgressBar = mProgressBar;
     }
 
-    public JokeAsyncTask(){}
 
     @Override
     protected String doInBackground(Context... params) {
@@ -57,7 +56,9 @@ public class JokeAsyncTask extends AsyncTask<Context, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        mProgressBar.setVisibility(View.VISIBLE);
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -65,7 +66,9 @@ public class JokeAsyncTask extends AsyncTask<Context, Void, String> {
     protected void onPostExecute(String result) {
         mResult = result;
         startDisplayActivity();
-        mProgressBar.setVisibility(View.GONE);
+        if (mProgressBar!= null) {
+            mProgressBar.setVisibility(View.GONE);
+        }
 
     }
 
