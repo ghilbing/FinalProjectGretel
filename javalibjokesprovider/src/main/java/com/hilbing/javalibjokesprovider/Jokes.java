@@ -11,6 +11,8 @@ public class Jokes {
 
     }*/
 
+    //https://stackoverflow.com/questions/5034370/retrieving-a-random-item-from-arraylist
+
   private static Random NR = new Random();
 
   public Jokes(){}

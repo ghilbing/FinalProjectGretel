@@ -35,11 +35,7 @@ android {
             exclude 'META-INF/ASL2.0'
         }
     }
-    sourceSets {
-        main { java.srcDirs = ['src/main/java', 'src/test', 'src/main/java/androidTest'] }
-        test { java.srcDirs = ['src/test/java'] }
-        androidTest { java.srcDirs = ['src/androidTest/java'] }
-    }
+    //https://stackoverflow.com/questions/19125771/how-to-exclude-advertising-libraries-from-paid-app-build
 
     flavorDimensions "version"
     productFlavors() {
@@ -54,6 +50,15 @@ android {
             versionNameSuffix "-paid"
         }
     }
+    sourceSets {
+        main { java.srcDirs = ['src/main/java', 'src/test', 'src/main/java/androidTest'] }
+        test { java.srcDirs = ['src/test/java'] }
+        androidTest { java.srcDirs = ['src/androidTest/java'] }
+        free { java.srcDirs = ['src/free/java']}
+        paid { java.srcDirs = ['src/paid/java']}
+    }
+
+
 
     task startServer (dependsOn: [':backend:appengineStop', ':backend:appengineRun']) {
         tasks.getByPath(':backend:appengineRun').mustRunAfter ':backend:appengineStop'
@@ -90,9 +95,21 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'junit:junit:4.12'
 
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.2.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
     implementation project(":javalibjokesprovider")
     implementation project(":libraryandroidjoker")
 
     implementation 'com.google.android.gms:play-services-ads:15.0.0'
     implementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'com.android.support:support-annotations:24.0.0'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+
+
 }

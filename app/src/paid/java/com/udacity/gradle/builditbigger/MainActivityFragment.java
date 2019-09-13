@@ -1,20 +1,13 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
-import android.os.AsyncTask;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
-
 import androidx.fragment.app.Fragment;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.hilbing.androidlibraryjoker.DisplayActivity;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -54,7 +47,6 @@ public class MainActivityFragment extends Fragment {
 
         return root;
     }
-
 
 
     public void getNewJoke(){
