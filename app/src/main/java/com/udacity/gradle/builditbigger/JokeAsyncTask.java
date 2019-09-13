@@ -29,6 +29,8 @@ public class JokeAsyncTask extends AsyncTask<Context, Void, String> {
         this.mProgressBar = mProgressBar;
     }
 
+    public JokeAsyncTask(){}
+
     @Override
     protected String doInBackground(Context... params) {
         if (myApi == null) {
