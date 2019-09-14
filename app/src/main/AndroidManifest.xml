@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <!--This meta-data tag is required to use Google Play Services.-->
+<!--        This meta-data tag is required to use Google Play Services.-->
         <meta-data
             tools:replace="android:value"
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -21,7 +21,7 @@
       <!--  <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />-->
-        <!--Include the AdActivity configChanges and theme. -->
+<!--        Include the AdActivity configChanges and theme. -->
 
         <activity
             android:name="com.udacity.gradle.builditbigger.MainActivity"
